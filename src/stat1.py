@@ -1,9 +1,9 @@
-import pandas as pd
+import polars as pl
 import matplotlib.pyplot as plt
 
 
 def getDescStats():
-    df = pd.read_csv(
+    df = pl.read_csv(
         "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv"
     )
     answer = df["sepal_length"].describe()
@@ -11,14 +11,16 @@ def getDescStats():
 
 
 def makeGraph():
-    df = pd.read_csv(
+    df = pl.read_csv(
         "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv"
     )
 
-    df.groupby("species").mean()["sepal_length"].plot.bar(
-        title="Average Sepal Length per Iris Species",
-        xlabel="Iris Species",
-        ylabel="Average Sepal Length (cm)",
-    )
+    groupedDf = df.group_by("species").mean()
+    x = groupedDf["species"]
+    y = groupedDf["sepal_length"]
+    plt.bar(x, y)
+    plt.title("Average Sepal Length per Iris Species")
+    plt.xlabel("Iris Species")
+    plt.ylabel("Average Sepal Length (cm)")
 
-    plt.savefig("answer.png")
+    plt.savefig("graph.png")
