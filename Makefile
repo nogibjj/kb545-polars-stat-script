@@ -5,10 +5,10 @@ install:
 test: install
 	python -m pytest -vv --cov=src test_*.py
 
-format:	test
+format:
 	black src/*.py 
 
-lint: format
+lint:
 	#Whenever a lint check needs to occur, either have a mylib folder, or change mylib to the respective folder name
 	pylint --disable=R,C --ignore-patterns=test_.*?py *.py src/*.py
 
