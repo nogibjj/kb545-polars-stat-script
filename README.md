@@ -1,5 +1,5 @@
 [![CI](https://github.com/nogibjj/python-template/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/python-template/actions/workflows/cicd.yml)
-## Pandas Descriptive Statistics Script
+## Polars Descriptive Statistics Script
 
 This is a POC of the Python Template, showing that creating a statistic script is automated. This is for Mini-Project 3 for IDS 706 Data Engineering
 
